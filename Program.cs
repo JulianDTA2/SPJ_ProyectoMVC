@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using SPJ_ProyectoMVC.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<SPJ_ProyectoMVCContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SPJ_ProyectoMVCContext") ?? throw new InvalidOperationException("Connection string 'SPJ_ProyectoMVCContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
