@@ -26,9 +26,10 @@ body {
     color: rgb(0, 0, 0);
     font-family: "Minimal", sans-serif;
     font-size: 24px;
-    display: grid;
+    display: block;
     place-items: center;
     background-color: #252422;
+    text-align:center;
 }
 
 h1,
@@ -50,7 +51,11 @@ p {
     display: flex;
     align-items: center;
     gap: 50px;
+    text-align: center;
     list-style: none;
+}
+.menu-item{
+    text-align:center;
 }
 
 .menu-link {
@@ -59,8 +64,9 @@ p {
     display: inline-block;
     color: black;
     font-weight: 800;
-    position: relative;
+    position: center;
     transition: all 0.3s linear;
+    text-align: center;
 }
 
     .menu-link:hover {
@@ -74,4 +80,7 @@ p {
     background-color: #eb5e28;
     transition: all 0.2s linear;
     position: fixed;
+}
+footer {
+    text-align:center;
 }
