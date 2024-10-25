@@ -1,35 +1,44 @@
 ﻿@model IEnumerable<SPJ_ProyectoMVC.Models.About>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Nosotros";
 }
 
-<h1>Index</h1>
+<h1>Nosotros</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.AboutId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AboutId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AboutId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<h2><a asp-area="" asp-controller="Home" style="text-decoration: none; color: inherit;">Inicio</a></h2>
+
+<div style="display: flex; flex-direction: column; align-items: center;">
+
+    <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; width: 70%; margin-bottom: auto;">
+        <div style="flex: 1; padding-right: 2rem;">
+            <h2>Nuestra Misión</h2>
+            <p>
+                <!-- mision pilas que hay que dar enter sino se dana -->
+                BLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAH
+                BLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAH
+                BLAHBLAH
+            </p>
+        </div>
+        <div style="flex: 1;">
+            <img src="~/css/Lancer2.jpg" alt="Foto de la misión" style="max-width: 90%; height: auto; border-radius: 10px;">
+        </div>
+    </div>
+
+    <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; width: 70%; margin-bottom: auto;">
+        <div style="flex: 1;">
+            <img src="~/css/Lancer.jpg" alt="Foto de la historia" style="max-width: 90%; height: auto; border-radius: 10px;">
+        </div>
+        <div style="flex: 1; padding-left: 2rem;">
+            <h2>Nuestra Historia</h2>
+            <p>
+
+                <!-- historio pilas que hay que dar enter sino se dana -->
+                BLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAH
+                BLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAH
+                BLAHBLAH
+            </p>
+        </div>
+    </div>
+
+</div>
