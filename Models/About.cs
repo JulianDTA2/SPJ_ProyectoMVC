@@ -2,6 +2,6 @@
 {
     public class About
     {
-
+        public string? Description { get; set; }
     }
 }
