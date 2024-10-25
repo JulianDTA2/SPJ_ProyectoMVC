@@ -26,10 +26,13 @@ body {
     color: rgb(0, 0, 0);
     font-family: "Minimal", sans-serif;
     font-size: 24px;
-    display: block;
+    display: flex;
+    justify-content: center;
     place-items: center;
+    align-items: center;
     background-color: #252422;
-    text-align:center;
+    text-align: center;
+
 }
 
 h1,
@@ -49,9 +52,9 @@ p {
 
 .menu {
     display: flex;
+    justify-content:center;
     align-items: center;
     gap: 50px;
-    text-align: center;
     list-style: none;
 }
 .menu-item{
@@ -61,10 +64,8 @@ p {
 .menu-link {
     font-size: 3em;
     text-decoration: none;
-    display: inline-block;
     color: black;
     font-weight: 800;
-    position: center;
     transition: all 0.3s linear;
     text-align: center;
 }
