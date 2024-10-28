@@ -15,7 +15,7 @@ namespace SPJ_ProyectoMVC.Models
         [Range(5000.00, 50000.00)]
         public decimal Precio { get; set; }
         public decimal IVA { get; set; }
-        
+        public string? ImagePath { get; set; }
 
     }
 }

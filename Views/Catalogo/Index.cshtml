@@ -7,7 +7,7 @@
 <h1>Catalogo</h1>
 <h2><a asp-area="" asp-controller="Home" style="text-decoration: none; color: inherit;">Inicio</a></h2>
 <p>
-    <a style="text-decoration: none; color: inherit;" asp-action="Create">Create New</a>
+    <a style="text-decoration: none; color: inherit;" asp-action="Create">Ingresar un Veiculo</a>
 </p>
 <table class="table">
     <thead>
@@ -27,33 +27,42 @@
             <th>
                 @Html.DisplayNameFor(model => model.IVA)
             </th>
-            <th></th>
+            <th style="text-align: center;">Imagen</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Marca)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Modelo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Usado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Precio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IVA)
-            </td>
-            <td>
-                    <a asp-action="Edit" asp-route-id="@item.CatalogoId" style="text-decoration: none; color: inherit;">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.CatalogoId" style="text-decoration: none; color: inherit;">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.CatalogoId" style="text-decoration: none; color: inherit;">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Modelo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Precio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IVA)
+                </td>
+                <td>
+                    @if (!string.IsNullOrEmpty(item.ImagePath))
+                    {
+                            <img src="@item.ImagePath" alt="image" style="width:100px;height:auto; border-radius:12px; vertical-align: central;" />
+                    }
+                </td> 
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CatalogoId" style="text-decoration: none; color: inherit;">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.CatalogoId" style="text-decoration: none; color: inherit;">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CatalogoId" style="text-decoration: none; color: inherit;">Eliminar</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
