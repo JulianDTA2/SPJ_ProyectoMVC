@@ -1,32 +1,45 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using SPJ_ProyectoMVC.Data;
-using Microsoft.AspNetCore.Identity;
 using SPJ_ProyectoMVC.Areas.Identity.Data;
+using Microsoft.AspNetCore.Identity;
+using SPJ_ProyectoMVC.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Configuración de DbContext para Identity
+builder.Services.AddDbContext<DBContextSample>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DBContextSampleConnection")));
+
+// Configuración de DbContext para SPJ_ProyectoMVCContext
 builder.Services.AddDbContext<SPJ_ProyectoMVCContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("SPJ_ProyectoMVCContext") ?? throw new InvalidOperationException("Connection string 'SPJ_ProyectoMVCContext' not found.")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SPJ_ProyectoMVCContext")));
 
-builder.Services.AddDefaultIdentity<SampleUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<DBContextSample>();
+// Configuración de Identity
+builder.Services.AddDefaultIdentity<SampleUser>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = true;
+})
+.AddEntityFrameworkStores<DBContextSample>();
 
-// Add services to the container.
+// Agregar servicios de MVC
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+// Middleware de configuración
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+else
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
+app.UseAuthentication(); // Importante para Identity
 app.UseAuthorization();
 
 app.MapControllerRoute(
