@@ -14,7 +14,9 @@ namespace SPJ_ProyectoMVC.Data
         {
         }
 
+
         public DbSet<SPJ_ProyectoMVC.Models.Catalogo> Catalogo { get; set; } = default!;
         public DbSet<SPJ_ProyectoMVC.Models.About> About { get; set; } = default!;
+
     }
 }
