@@ -10,6 +10,7 @@ namespace SPJ_ProyectoMVC.Areas.Identity.Data
         public DBContextSample(DbContextOptions<DBContextSample> options)
             : base(options)
         {
+
         }
     }
 }
