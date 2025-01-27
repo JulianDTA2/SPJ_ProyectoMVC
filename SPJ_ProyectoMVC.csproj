@@ -19,9 +19,4 @@
     <PackageReference Include="SQLite-net-pcl" Version="1.9.172" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\SPJAutomovilesAPI\SPJAutomovilesApi.csproj" />
-    <ProjectReference Include="..\SPJMauiApp\SPJMauiApp.csproj" />
-  </ItemGroup>
-
 </Project>
